@@ -1,0 +1,25 @@
+const mongoose = require("mongoose");
+// connect to mongoose
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/learnMongo")
+  .then(() => {
+    console.log("MongoDB is Connected now!!");
+  })
+  .catch((err) => {
+    console.log("Error From MongoDB", err);
+  });
+
+const userSchema = new mongoose.Schema({
+  firstName: {
+    typeof: String,
+  },
+  lastName: {
+    typeof: String,
+  },
+  email: {
+    typeof: String,
+  },
+});
+const User = mongoose.model("user", userSchema);
+// MongoDb Ends Here
